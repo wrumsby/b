@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../bower_components/mocha/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../bower_components/mocha/mocha.js"></script>
+    <script src="../bower_components/chai/chai.js"></script>
+    <script src="../bower_components/requirejs/require.js"></script>
+    <script>
+      (function () {
+        'use strict';
+
+        mocha.ui('bdd');
+        mocha.reporter('html');
+
+        require.config({
+          paths: {
+            'b': '../index',
+            'king-dom': '../bower_components/king-dom/index'
+          }
+        });
+
+        require(['b'], function (b) {
+          var assert = chai.assert;
+
+          describe('b', function () {
+            it('should work', function () {
+              var actual;
+              var expected = 'blue';
+
+              b('#content');
+
+              actual = document.getElementById('content').style.backgroundColor;
+
+              assert.strictEqual(actual, expected);
+            });
+          });
+
+          if (window.mochaPhantomJS) {
+            mochaPhantomJS.run();
+          } else {
+            mocha.run();
+          }
+        });
+      }());
+    </script>
+    <div id="content"></div>
+  </body>
+</html>

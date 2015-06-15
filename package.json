@@ -1,0 +1,29 @@
+{
+  "name": "b",
+  "version": "1.0.0",
+  "description": "b module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "test": "./node_modules/.bin/mocha-phantomjs -R dot test/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wrumsby/b.git"
+  },
+  "keywords": [
+    "bower",
+    "module",
+    "poc"
+  ],
+  "author": "Walter Rumsby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wrumsby/b/issues"
+  },
+  "devDependencies": {
+    "eslint": "^0.23.0",
+    "mocha-phantomjs": "^3.5.3",
+    "phantomjs": "^1.9.17"
+  }
+}
